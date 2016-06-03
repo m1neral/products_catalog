@@ -1,0 +1,6 @@
+%ul.nav.nav-pills.nav-stacked
+  %li{ role: 'presentation', class: ('active' unless locals[:category]) }
+    %a{ href: '#'} All
+  - Category.all.each do |category|
+    %li{ role: 'presentation', class: ('active' if category == locals[:category]) }
+      %a{ href: '#'} #{category.name}
