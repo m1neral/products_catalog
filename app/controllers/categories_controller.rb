@@ -1,12 +1,12 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = { all: Category.all }
+    @categories = Category.get_categories_with_selected
     @products = Product.all
     render :show
   end
 
   def show
-    @categories = { all: Category.all, selected: Category.find(params[:id]) }
+    @categories = Category.get_categories_with_selected(params[:id])
     @products = @categories[:selected].products
   end
 end

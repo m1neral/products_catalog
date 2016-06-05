@@ -1,6 +1,8 @@
-%ul.nav.nav-pills.nav-stacked
-  %li{ role: 'presentation', class: ('active' unless locals[:categories][:selected]) }
-    = link_to('All', categories_path)
-  - @categories[:all].each do |category|
-    %li{ role: 'presentation', class: ('active' if category == locals[:categories][:selected]) }
-      = link_to(category.name, category)
+.col-xs-3
+  %h4 Categories
+  %ul.nav.nav-pills.nav-stacked
+    %li{ role: 'presentation', class: ('active' unless locals[:categories][:selected]) }
+      = link_to('All', categories_path)
+    - @categories[:all].each do |category|
+      %li{ role: 'presentation', class: ('active' if category == locals[:categories][:selected]) }
+        = link_to(category.name, category)
