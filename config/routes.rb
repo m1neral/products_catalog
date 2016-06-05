@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :categories
+  get '/products' => redirect('/categories')
+
+  resources :categories, :products
 
   root 'categories#index'
 end

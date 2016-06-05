@@ -1,9 +1,12 @@
 class CategoriesController < ApplicationController
   def index
+    @categories = { all: Category.all }
+    @products = Product.all
     render :show
   end
 
   def show
-    @category = Category.find(params[:id])
+    @categories = { all: Category.all, selected: Category.find(params[:id]) }
+    @products = @categories[:selected].products
   end
 end

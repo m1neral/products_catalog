@@ -1,5 +1,6 @@
 .col-xs-3
   %h4 Categories
-  = render 'list', locals: { category: @category }
+  = render 'list', locals: { categories: @categories }
 .col-xs-9
-  Products
+  %h4 Products
+  = render 'products/list', locals: { products: @products }
