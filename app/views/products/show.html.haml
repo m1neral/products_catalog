@@ -1,1 +1,5 @@
 = render 'categories/list', locals: { categories: @categories }
+.col-xs-9
+  %h3= @product.title
+  %p.description= @product.description
+  = render 'reviews', locals: { reviews: @product.reviews }

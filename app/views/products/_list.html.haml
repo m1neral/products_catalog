@@ -1,7 +1,7 @@
 .col-xs-9
   %h4 Products
-  - @products.each do |product|
+  - locals[:products].each do |product|
     .panel.panel-default
       .panel-body
         = link_to(product.title, product)
-        .description #{product.description}
+        .pre-description= truncate(product.description, length: 256, separator: ' ')

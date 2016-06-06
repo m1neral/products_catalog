@@ -22,3 +22,9 @@ and deeply serious meditation on the nature and uses of the mind.'
 g1 = c3.products.create title: 'Prince of Persia: The Forgotten Sands', description: 'Prince of Persia The Forgotten Sands is the next chapter
 in the fan-favorite Sands of Time universe. Visiting his brother\'s kingdom following his adventure in Azad, the Prince finds the royal
 palace under siege from a mighty army bent on its destruction.'
+
+f2.reviews.create msg: 'Best of the best!'
+
+b1.reviews.create msg: 'Cool book!'
+b1.reviews.create msg: 'Smashing!'
+b1.reviews.create msg: 'Awesome!!!'
