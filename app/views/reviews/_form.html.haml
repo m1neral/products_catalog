@@ -1,0 +1,14 @@
+= form_for [locals[:product], locals[:review]], html: {class: 'form-group'} do |f|
+  - if @review.errors.any?
+    .error_send_review
+      .alert.alert-danger{role: 'alert'}
+        %span.glyphicon.glyphicon-exclamation-sign{'aria-hidden' => 'true'}
+        %span.sr-only Error:
+        = pluralize(@review.errors.count, 'error')
+        prohibited this review from being saved:
+        %ul
+          - @review.errors.full_messages.each do |msg|
+            %li= msg
+  = f.label 'Leave your review here:'
+  = f.text_area :msg, class: 'form-control', rows: 4
+  = f.submit 'Send', class: 'btn btn-info send-review'

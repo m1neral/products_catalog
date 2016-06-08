@@ -1,5 +1,6 @@
-= render 'categories/list', locals: { categories: @categories }
+= render 'categories/list', locals: { categories: Category.all_with_selected(@product.category_id) }
 .col-xs-9
   %h3= @product.title
   %p.description= @product.description
-  = render 'reviews', locals: { reviews: @product.reviews }
+  = render 'reviews/list', locals: { reviews: @product.reviews }
+  = render 'reviews/form', locals: { product: @product, review: @review }

@@ -1,0 +1,7 @@
+%hr
+.list-group
+  - locals[:reviews].each do |review|
+    - unless review.id.nil?
+      .panel.panel-default
+        .panel-heading by Unknown
+        .panel-body= review.msg
