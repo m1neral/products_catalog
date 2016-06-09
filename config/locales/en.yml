@@ -3,3 +3,8 @@ en:
     attributes:
       review:
         msg: 'Review'
+  reviews:
+    create:
+      added: 'Your review has successfully added'
+    destroy:
+      removed: 'Review removed'

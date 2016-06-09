@@ -2,6 +2,11 @@
 .list-group
   - locals[:reviews].each do |review|
     - unless review.id.nil?
-      .panel.panel-default
-        .panel-heading by Unknown
+      .panel.panel-default.review
+        .panel-heading
+          %span.user by Unknown
+          %small.time on #{(review.created_at + 3.hours).to_formatted_s(:db) }
+          %span.admin-tools
+            =render 'reviews/admin_tools', locals: {review: review}
         .panel-body= review.msg
+= render 'reviews/notification'
