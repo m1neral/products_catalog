@@ -1,0 +1,16 @@
+- if locals[:resource].errors.any?
+  .error_send_form
+    .alert.alert-danger{role: 'alert'}
+      %span.glyphicon.glyphicon-exclamation-sign{'aria-hidden' => 'true'}
+      %span.sr-only Error:
+      = pluralize(locals[:resource].errors.count, 'error')
+      prohibited this from being sent:
+      %ul
+        - locals[:resource].errors.full_messages.each do |msg|
+          %li= msg
+- elsif flash[:alert]
+  .error_send_form
+    .alert.alert-danger{role: 'alert'}
+      %span.glyphicon.glyphicon-exclamation-sign{'aria-hidden' => 'true'}
+      %span.sr-only
+      =flash[:alert]
