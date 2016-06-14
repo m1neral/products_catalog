@@ -4,6 +4,7 @@
       %h4= t('.forgot_your_password', default: 'Forgot your password?')
     .panel-body
       = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, role: 'form' }) do |f|
+        = render 'helpers/error_notification', locals: { resource: resource }
         .form-group
           = f.label :email
           = f.email_field :email, autofocus: true, class: 'form-control'
