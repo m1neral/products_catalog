@@ -4,6 +4,8 @@ class ReviewsController < ApplicationController
 
   def create
     @review = @product.reviews.new(review_params)
+    authorize @review
+    @review.user = current_user
     if @review.save
       redirect_to(@product, flash: {added: t('.added')})
     else
@@ -12,6 +14,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    authorize @review
     @review.destroy
     redirect_to(@product, flash: {removed: t('.removed')})
   end

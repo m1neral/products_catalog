@@ -1,5 +1,6 @@
-= form_for [locals[:product], locals[:review]], html: {class: 'form-group'} do |f|
-  = render 'helpers/error_notification', locals: { resource: locals[:review] }
-  = f.label 'Leave your review here:'
-  = f.text_area :msg, class: 'form-control', rows: 4
-  = f.submit 'Send', class: 'btn btn-info send-review'
+- if policy(locals[:review]).create?
+  = form_for [locals[:product], locals[:review]], html: {class: 'form-group'} do |f|
+    = render 'helpers/error_notification', locals: { resource: locals[:review] }
+    = f.label 'Leave your review here:'
+    = f.text_area :msg, class: 'form-control', rows: 4
+    = f.submit 'Send', class: 'btn btn-info send-review'

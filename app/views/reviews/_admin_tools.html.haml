@@ -1,4 +1,5 @@
-= button_to [locals[:review].product, locals[:review]], class: 'btn btn-default btn-xs',
-    method: :delete, onclick: 'return confirm(\'Are you sure?\')' do
-  %span.glyphicon.glyphicon-remove{'aria-hidden' => 'true'}
-  Remove
+- if policy(locals[:review]).destroy?
+  = button_to [locals[:review].product, locals[:review]], class: 'btn btn-default btn-xs',
+      method: :delete, onclick: 'return confirm(\'Are you sure?\')' do
+    %span.glyphicon.glyphicon-remove{'aria-hidden' => 'true'}
+    Remove

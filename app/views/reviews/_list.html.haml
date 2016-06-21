@@ -1,12 +1,19 @@
 %hr
 = render 'reviews/notification'
-.list-group
-  - locals[:reviews].each do |review|
-    - unless review.id.nil?
-      .panel.panel-default.review
-        .panel-heading
-          %span.user by Unknown
-          %small.time on #{(review.created_at + 3.hours).to_formatted_s(:db) }
-          %span.admin-tools
-            =render 'reviews/admin_tools', locals: {review: review}
-        .panel-body= review.msg
+- if locals[:reviews].length > 1
+  .list-group
+    - locals[:reviews].each do |review|
+      - unless review.id.nil?
+        .panel.panel-default.review
+          .panel-heading
+            %span.user= review.user.email
+            - if review.user.admin?
+              %span.badge Admin
+            - if review.user == current_user
+              %span.badge You
+            %small.time on #{(review.created_at + 3.hours).to_formatted_s(:db) }
+            %span.admin-tools
+              =render 'reviews/admin_tools', locals: {review: review}
+          .panel-body= review.msg
+- else
+  %h5 No reviews for this product.

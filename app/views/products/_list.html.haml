@@ -1,7 +1,10 @@
 .col-xs-9
   %h4 Products
-  - locals[:products].each do |product|
-    .panel.panel-default
-      .panel-body
-        = link_to(product.title, product)
-        .pre-description= truncate(product.description, length: 256, separator: ' ')
+  - if locals[:products].any?
+    - locals[:products].each do |product|
+      .panel.panel-default
+        .panel-body
+          = link_to(product.title, product)
+          .pre-description= truncate(product.description, length: 256, separator: ' ')
+  - else
+    %h5 No products for this category.

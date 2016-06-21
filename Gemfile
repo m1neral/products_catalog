@@ -9,6 +9,7 @@ gem 'sass-rails', '>= 3.2'
 gem 'jquery-rails'
 
 gem 'devise'
+gem 'pundit'
 
 gem 'figaro'
 
