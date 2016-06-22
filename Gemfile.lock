@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/sudosu/rails_admin_pundit.git
+  revision: d0446606cdb55835e7ff7194df11cd05626008a3
+  specs:
+    rails_admin_pundit (0.0.1)
+      pundit (>= 0.2.3)
+      rails_admin (>= 0.6.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -54,6 +62,13 @@ GEM
     builder (3.2.2)
     byebug (9.0.5)
     coderay (1.1.1)
+    coffee-rails (4.1.1)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.1.x)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
     devise (3.5.6)
@@ -67,6 +82,8 @@ GEM
     execjs (2.7.0)
     figaro (1.1.0)
       thor (~> 0.14)
+    font-awesome-rails (4.6.3.0)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -87,7 +104,12 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.5)
+      railties (>= 3.2.16)
     json (1.8.3)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -98,6 +120,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.0.0)
     minitest (5.9.0)
+    nested_form (0.3.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
@@ -112,6 +135,9 @@ GEM
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (1.6.4)
+    rack-pjax (0.8.0)
+      nokogiri (~> 1.5)
+      rack (~> 1.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.5.1)
@@ -133,16 +159,32 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_admin (0.8.1)
+      builder (~> 3.1)
+      coffee-rails (~> 4.0)
+      font-awesome-rails (>= 3.0, < 5)
+      haml (~> 4.0)
+      jquery-rails (>= 3.0, < 5)
+      jquery-ui-rails (~> 5.0)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (~> 0.7)
+      rails (~> 4.0)
+      remotipart (~> 1.0)
+      safe_yaml (~> 1.0)
+      sass-rails (>= 4.0, < 6)
     railties (4.2.5.1)
       actionpack (= 4.2.5.1)
       activesupport (= 4.2.5.1)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (11.1.2)
+    remotipart (1.2.1)
     responders (2.1.1)
       railties (>= 4.2.0, < 5.1)
     ruby_parser (3.7.3)
       sexp_processor (~> 4.1)
+    safe_yaml (1.0.4)
     sass (3.4.22)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -190,6 +232,8 @@ DEPENDENCIES
   pry-remote
   pundit
   rails (= 4.2.5.1)
+  rails_admin
+  rails_admin_pundit!
   sass-rails (>= 3.2)
   spring
   web-console (~> 2.0)

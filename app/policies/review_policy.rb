@@ -1,4 +1,4 @@
-class ReviewPolicy
+class ReviewPolicy < ApplicationPolicy
   attr_reader :user, :review
 
   def initialize(user, review)

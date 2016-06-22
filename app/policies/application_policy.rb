@@ -7,7 +7,7 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    true
   end
 
   def show?
@@ -48,6 +48,17 @@ class ApplicationPolicy
 
     def resolve
       scope
+    end
+  end
+
+  def rails_admin?(action)
+    actions = [:dashboard, :index, :show, :new, :edit, :destroy,
+               :export, :history, :show_in_app]
+    if actions.include?(action)
+      user.is_admin? if user
+    else
+      raise ::Pundit::NotDefinedError,
+            "unable to find policy #{action} for #{record}."
     end
   end
 end
