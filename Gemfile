@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.2.1'
+
 gem 'rails', '4.2.5.1'
 gem 'pg'
 gem 'haml-rails'
@@ -17,6 +19,8 @@ gem 'figaro'
 
 gem 'rails_admin'
 gem 'rails_admin_pundit', :github => 'sudosu/rails_admin_pundit'
+
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
