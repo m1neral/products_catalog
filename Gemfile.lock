@@ -207,6 +207,8 @@ GEM
     tilt (2.0.4)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uglifier (3.0.0)
+      execjs (>= 0.3.0, < 3)
     warden (1.2.6)
       rack (>= 1.0)
     web-console (2.3.0)
@@ -224,6 +226,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass (~> 3.3.6)
   byebug
+  coffee-rails
   devise
   figaro
   haml-rails
@@ -236,6 +239,7 @@ DEPENDENCIES
   rails_admin_pundit!
   sass-rails (>= 3.2)
   spring
+  uglifier
   web-console (~> 2.0)
 
 BUNDLED WITH
