@@ -1,3 +1,5 @@
+user = User.create is_admin: true, email: 'admin@admin.com', password: '1q2w3e4r'
+
 c1 = Category.create name: 'Films'
 c2 = Category.create name: 'Books'
 c3 = Category.create name: 'Games'
@@ -25,6 +27,6 @@ palace under siege from a mighty army bent on its destruction.'
 
 f2.reviews.create msg: 'Best of the best!'
 
-b1.reviews.create msg: 'Cool book!'
-b1.reviews.create msg: 'Smashing!'
-b1.reviews.create msg: 'Awesome!!!'
+b1.reviews.create msg: 'Cool book!', user: user
+b1.reviews.create msg: 'Smashing!', user: user
+b1.reviews.create msg: 'Awesome!!!', user: user
