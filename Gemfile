@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.1'
 
-gem 'rails', '4.2.5.1'
+gem 'rails', '4.2.6'
 gem 'pg'
 gem 'haml-rails'
 
@@ -18,7 +18,7 @@ gem 'pundit'
 gem 'figaro'
 
 gem 'rails_admin'
-gem 'rails_admin_pundit', :github => 'sudosu/rails_admin_pundit'
+gem 'rails_admin_pundit', github: 'sudosu/rails_admin_pundit', tag: '0.0.2'
 
 gem 'rails_12factor', group: :production
 

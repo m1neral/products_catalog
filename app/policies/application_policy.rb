@@ -7,7 +7,7 @@ class ApplicationPolicy
   end
 
   def index?
-    true
+    false
   end
 
   def show?
@@ -55,7 +55,7 @@ class ApplicationPolicy
     actions = [:dashboard, :index, :show, :new, :edit, :destroy,
                :export, :history, :show_in_app]
     if actions.include?(action)
-      user.is_admin? if user
+      user.admin? if user
     else
       raise ::Pundit::NotDefinedError,
             "unable to find policy #{action} for #{record}."
