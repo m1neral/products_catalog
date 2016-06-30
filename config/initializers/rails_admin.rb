@@ -13,7 +13,7 @@ RailsAdmin.config do |config|
 
   ## == Pundit ==
   config.authorize_with :pundit
-  config.included_models = %w[User Category Product Review]
+  config.included_models = %w[User Category Product Review Action Role]
 
   ## == PaperTrail ==
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0

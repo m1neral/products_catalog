@@ -1,5 +1,8 @@
 user = User.create is_admin: true, email: 'admin@admin.com', password: '1q2w3e4r'
 
+# essential role
+registered_role = Role.create name: 'registered', actions: %i(read_categories read_products read_reviews create_reviews)
+
 c1 = Category.create name: 'Films'
 c2 = Category.create name: 'Books'
 c3 = Category.create name: 'Games'
