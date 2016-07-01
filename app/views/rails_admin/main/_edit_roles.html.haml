@@ -1,0 +1,4 @@
+- Action.all.each_with_index  do |action, i|
+  = check_box_tag 'role[actions][]', action, (@object.actions.include?(action.to_s) if @object.actions), id: "#{action}_#{i}"
+  = label_tag "#{action}_#{i}", action
+  %br/

@@ -1,6 +1,6 @@
 # essential role
 admin_role = Role.create name: 'admin', actions: Action.all
-registered_role = Role.create name: 'registered', actions: %i(create_reviews)
+registered_role = Role.create name: 'registered', actions: %w(create_reviews)
 
 user = User.create role: admin_role, email: 'admin@admin.com', password: '1q2w3e4r'
 

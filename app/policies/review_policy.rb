@@ -19,9 +19,9 @@ class ReviewPolicy < ApplicationPolicy
       when :new
         false
       when :edit
-        user.role.actions.include?(:edit_reviews) if user
+        user.role.actions.include?('edit_reviews') if user
       when :destroy
-        user.role.actions.include?(:destroy_reviews) if user
+        user.role.actions.include?('destroy_reviews') if user
       else
         super
     end

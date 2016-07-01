@@ -9,11 +9,11 @@ class CategoryPolicy < ApplicationPolicy
   def rails_admin?(action)
     case action
       when :new
-        user.role.actions.include?(:create_categories) if user
+        user.role.actions.include?('create_categories') if user
       when :edit
-        user.role.actions.include?(:edit_categories) if user
+        user.role.actions.include?('edit_categories') if user
       when :destroy
-        user.role.actions.include?(:destroy_reviews) if user
+        user.role.actions.include?('destroy_reviews') if user
       else
         super
     end
