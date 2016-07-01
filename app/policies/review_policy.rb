@@ -7,7 +7,7 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def create?
-    user.present?
+    Action.create_review?(user) if user
   end
 
   def destroy?

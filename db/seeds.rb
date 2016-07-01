@@ -1,7 +1,8 @@
-user = User.create is_admin: true, email: 'admin@admin.com', password: '1q2w3e4r'
-
 # essential role
-registered_role = Role.create name: 'registered', actions: %i(read_categories read_products read_reviews create_reviews)
+admin_role = Role.create name: 'admin', actions: Action.all
+registered_role = Role.create name: 'registered', actions: %i(create_reviews)
+
+user = User.create role: admin_role, email: 'admin@admin.com', password: '1q2w3e4r'
 
 c1 = Category.create name: 'Films'
 c2 = Category.create name: 'Books'
@@ -28,7 +29,7 @@ g1 = c3.products.create title: 'Prince of Persia: The Forgotten Sands', descript
 in the fan-favorite Sands of Time universe. Visiting his brother\'s kingdom following his adventure in Azad, the Prince finds the royal
 palace under siege from a mighty army bent on its destruction.'
 
-f2.reviews.create msg: 'Best of the best!'
+f2.reviews.create msg: 'Best of the best!', user: user
 
 b1.reviews.create msg: 'Cool book!', user: user
 b1.reviews.create msg: 'Smashing!', user: user

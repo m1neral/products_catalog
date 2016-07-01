@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def admin?
-    !!is_admin
+    role.actions.to_set == Action.all.to_set
   end
 
   private
