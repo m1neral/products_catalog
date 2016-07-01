@@ -52,8 +52,7 @@ class ApplicationPolicy
   end
 
   def rails_admin?(action)
-    actions = [:dashboard, :index, :show, :new, :edit, :destroy,
-               :export, :history, :show_in_app]
+    actions = [:dashboard, :index, :show, :export, :history, :show_in_app]
     if actions.include?(action)
       user.admin? if user
     else
