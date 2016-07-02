@@ -7,11 +7,11 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def create?
-    user.role.actions.include?(:create_reviews) if user
+    user.role.actions.include?('create_reviews') if user
   end
 
   def destroy?
-    (user.admin? || user == review.user) if user
+    (user.role.actions.include?('destroy_reviews') || user == review.user) if user
   end
 
   def rails_admin?(action)
