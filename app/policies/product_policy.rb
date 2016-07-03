@@ -9,11 +9,11 @@ class ProductPolicy < ApplicationPolicy
   def rails_admin?(action)
     case action
       when :new
-        user.role.actions.include?('create_products') if user
+        user.role.create_products_allowed? if user
       when :edit
-        user.role.actions.include?('edit_products') if user
+        user.role.edit_products_allowed? if user
       when :destroy
-        user.role.actions.include?('destroy_products') if user
+        user.role.destroy_products_allowed? if user
       else
         super
     end

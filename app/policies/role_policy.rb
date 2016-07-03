@@ -9,11 +9,11 @@ class RolePolicy < ApplicationPolicy
   def rails_admin?(action)
     case action
       when :new
-        user.role.actions.include?('create_roles') if user
+        user.role.create_roles_allowed? if user
       when :edit
-        user.role.actions.include?('edit_roles') if user
+        user.role.edit_roles_allowed? if user
       when :destroy
-        user.role.actions.include?('destroy_roles') if user
+        user.role.destroy_roles_allowed? if user
       else
         super
     end

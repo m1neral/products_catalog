@@ -11,9 +11,9 @@ class UserPolicy < ApplicationPolicy
       when :new
         false
       when :edit
-        user.role.actions.include?('edit_users') if user
+        user.role.edit_users_allowed? if user
       when :destroy
-        user.role.actions.include?('destroy_users') if user
+        user.role.destroy_users_allowed? if user
       else
         super
     end

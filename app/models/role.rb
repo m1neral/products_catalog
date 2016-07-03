@@ -13,4 +13,10 @@ class Role < ActiveRecord::Base
       field :users
     end
   end
+
+  Action.all.each do |action|
+    define_method("#{action}_allowed?") do
+      actions.include?(action)
+    end
+  end
 end
