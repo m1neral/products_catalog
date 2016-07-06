@@ -1,7 +1,11 @@
 class Role < ActiveRecord::Base
   has_many :users
-
+  validate :validate_actions
   serialize :actions
+
+  def validate_actions
+    errors.add(:actions, :invalid) if (actions - Action.all).any?
+  end
 
   rails_admin do
     edit do
