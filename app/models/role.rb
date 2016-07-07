@@ -3,10 +3,6 @@ class Role < ActiveRecord::Base
   validate :validate_actions
   serialize :actions
 
-  def validate_actions
-    errors.add(:actions, :invalid) if (actions - Action.all).any?
-  end
-
   rails_admin do
     edit do
       field :name
@@ -23,4 +19,15 @@ class Role < ActiveRecord::Base
       actions.include?(action)
     end
   end
+
+  private
+
+  #
+  # custom validators
+  #
+
+  def validate_actions
+    errors.add(:actions, :invalid) if (actions - Action.all).any?
+  end
+
 end
