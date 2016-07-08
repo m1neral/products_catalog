@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
-
 gem 'rails', '4.2.6'
 gem 'pg'
 gem 'haml-rails'
@@ -15,30 +13,31 @@ gem 'coffee-rails'
 gem 'devise'
 gem 'pundit'
 
-gem 'figaro'
-
 gem 'rails_admin'
 gem 'rails_admin_pundit', github: 'sudosu/rails_admin_pundit', tag: '0.0.2'
 
 gem 'rails_12factor', group: :production
+gem 'figaro'
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
-  gem 'faker'
-end
+gem 'pry-rails'
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-  gem 'awesome_print'
+  gem 'web-console'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'pry-remote'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'quiet_assets'
+  gem 'zeus'
+  gem 'rack-mini-profiler'
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'pry-byebug'
+  gem 'jazz_fingers'
+  gem 'fuubar'
+end
+
+group :test do
+  gem 'faker'
+end
