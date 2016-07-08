@@ -1,11 +1,20 @@
 require 'rails_helper'
 
 describe Role do
-  it 'is invalid with not declared actions' do
-    FactoryGirl.build(:role, actions: rand(0..Action.all.count).times.map { Faker::Name.name }).should be_invalid
+  subject do
+    actions = rand(1...Action.all.count).times.map { action_method.call }
+    FactoryGirl.build(:role, actions: actions)
   end
 
-  it 'is valid with declared actions' do
-    FactoryGirl.build(:role, actions: (rand(0..Action.all.count).times.map { Action.all.sample }).uniq).should be_valid
+  context 'when invalid' do
+    let(:action_method) { -> { Faker::Name.name } }
+    
+    it { is_expected.to be_invalid }
+  end
+
+  context 'when valid' do
+    let(:action_method) { -> { Action.all.sample } }
+
+    it { is_expected.to be_valid }
   end
 end
