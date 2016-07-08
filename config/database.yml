@@ -1,17 +1,18 @@
 default: &default
   adapter: postgresql
-  pool: 5
-  timeout: 5000
-  encoding: unicode
+  encoding: utf8
+  database: <%= ENV['POSTGRES_ENV_POSTGRES_DATABASE'] || Figaro.env.db_name %>
+  username: <%= ENV['POSTGRES_ENV_POSTGRES_USER'] || Figaro.env.db_username %>
+  password: <%= ENV['POSTGRES_ENV_POSTGRES_PASSWORD'] || Figaro.env.db_password %>
+  host: <%= ENV['POSTGRES_PORT_5432_TCP_ADDR'] || Figaro.env.db_host %>
+  port: <%= ENV['POSTGRES_PORT_5432_TCP_PORT'] || Figaro.env.db_port %>
+  pool: <%= Figaro.env.db_pool || 10 %>
 
 development:
   <<: *default
-  database: products_catalog_dev
 
 test:
   <<: *default
-  database: products_catalog_test
 
 production:
   <<: *default
-  database: products_catalog_prod
