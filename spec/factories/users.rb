@@ -5,19 +5,19 @@ FactoryGirl.define do
     password_confirmation '1q2w3e4r'
 
     trait :categories_admin do
-      role FactoryGirl.create(:categories_admin)
+      role { FactoryGirl.create(:categories_admin) }
     end
 
     trait :products_admin do
-      role FactoryGirl.create(:products_admin)
+      role { FactoryGirl.create(:products_admin) }
     end
 
     trait :users_admin do
-      role FactoryGirl.create(:users_admin)
+      role { FactoryGirl.create(:users_admin) }
     end
 
     trait :something_admin do
-      role FactoryGirl.create(:something_admin)
+      role { FactoryGirl.create(:something_admin) }
     end
 
     factory :user_categories_admin, traits: [:categories_admin]

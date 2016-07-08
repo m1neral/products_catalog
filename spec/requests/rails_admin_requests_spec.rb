@@ -6,7 +6,8 @@ describe 'rails_admin access by different roles', type: :request do
     describe "admin_who_can_#{action}" do
       let(:user) { FactoryGirl.create(:user, role: FactoryGirl.create(:role, actions: [action])) }
       let(:controller_action) { action.split('_').first }
-      let(:resource) { action.split('_').last.singularize }
+      let(:resource_name) { action.split('_').last.singularize }
+      let(:resource) { FactoryGirl.create(resource_name) }
       
       before(:each) { sign_in user }
       after(:each) { sign_out user }
@@ -17,11 +18,11 @@ describe 'rails_admin access by different roles', type: :request do
 
         case controller_action
           when 'create'
-            get "/admin/#{resource}/new"
+            get "/admin/#{resource_name}/new"
           when 'edit'
-            get "/admin/#{resource}/#{resource.capitalize.constantize.first.id}/edit"
+            get "/admin/#{resource_name}/#{resource.id}/edit"
           when 'destroy'
-            get "/admin/#{resource}/#{resource.capitalize.constantize.first.id}/delete"
+            get "/admin/#{resource_name}/#{resource.id}/delete"
         end
 
         expect(response).to have_http_status(:success)
@@ -33,11 +34,11 @@ describe 'rails_admin access by different roles', type: :request do
 
         case controller_action
           when 'create'
-            expect { get "/admin/#{resource}/new" }.to raise_error(Pundit::NotAuthorizedError)
+            expect { get "/admin/#{resource_name}/new" }.to raise_error(Pundit::NotAuthorizedError)
           when 'edit'
-            expect { get "/admin/#{resource}/#{resource.capitalize.constantize.first.id}/edit" }.to raise_error(Pundit::NotAuthorizedError)
+            expect { get "/admin/#{resource_name}/#{resource.id}/edit" }.to raise_error(Pundit::NotAuthorizedError)
           when 'destroy'
-            expect { get "/admin/#{resource}/#{resource.capitalize.constantize.first.id}/delete" }.to raise_error(Pundit::NotAuthorizedError)
+            expect { get "/admin/#{resource_name}/#{resource.id}/delete" }.to raise_error(Pundit::NotAuthorizedError)
         end
       end
     end

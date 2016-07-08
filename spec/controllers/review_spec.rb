@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe ReviewsController do
-  let(:product) { Product.first }
+  let(:product) { FactoryGirl.create(:product) }
   let(:review) { FactoryGirl.build(:review, product: product, user: user) }
   subject { post :create, product_id: product.id, review: review.attributes }
 

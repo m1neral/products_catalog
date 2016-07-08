@@ -33,11 +33,8 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'faker'
   gem 'pry-byebug'
   gem 'jazz_fingers'
   gem 'fuubar'
-end
-
-group :test do
-  gem 'faker'
 end
