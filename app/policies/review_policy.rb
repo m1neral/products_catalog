@@ -22,8 +22,7 @@ class ReviewPolicy < ApplicationPolicy
         user.role.edit_reviews_allowed? if user
       when :destroy
         user.role.destroy_reviews_allowed? if user
-      else
-        super
+      else super
     end
   end
 end

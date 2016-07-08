@@ -14,8 +14,7 @@ class UserPolicy < ApplicationPolicy
         user.role.edit_users_allowed? if user
       when :destroy
         user.role.destroy_users_allowed? if user
-      else
-        super
+      else super
     end
   end
 end

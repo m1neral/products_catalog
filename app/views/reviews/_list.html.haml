@@ -1,5 +1,7 @@
 %hr
+
 = render 'reviews/notification'
+
 - if locals[:reviews].length > 1
   .list-group
     - locals[:reviews].each do |review|

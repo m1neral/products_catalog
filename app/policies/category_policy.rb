@@ -14,8 +14,7 @@ class CategoryPolicy < ApplicationPolicy
         user.role.edit_categories_allowed? if user
       when :destroy
         user.role.destroy_categories_allowed? if user
-      else
-        super
+      else super
     end
   end
 end

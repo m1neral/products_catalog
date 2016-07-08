@@ -14,8 +14,7 @@ class ProductPolicy < ApplicationPolicy
         user.role.edit_products_allowed? if user
       when :destroy
         user.role.destroy_products_allowed? if user
-      else
-        super
+      else super
     end
   end
 end
