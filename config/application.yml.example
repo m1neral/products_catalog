@@ -3,3 +3,12 @@ development:
   mailer_address:  'smtp.mail.ru'
   mailer_sender:   'mail@mail.com'
   mailer_password: '123456789'
+
+  db_name: products_catalog_dev
+  db_host: localhost
+
+test:
+  db_name: products_catalog_test
+
+production:
+  db_name: products_catalog_prod

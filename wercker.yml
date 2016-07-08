@@ -1,0 +1,18 @@
+box: rails
+
+build:
+  services:
+    - id: postgres
+      tag: 9.4
+      env:
+        POSTGRES_PASSWORD: secret888productscatalog
+        POSTGRES_USER: postgres
+  steps:
+    - bundle-install:
+        without: development production
+    - script:
+        name: db setup
+        code: rake db:setup RAILS_ENV=test
+    - script:
+        name: rspec
+        code: rspec
