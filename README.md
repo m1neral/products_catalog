@@ -1,28 +1,6 @@
-== README
+Products Catalog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+================
 
-Things you may want to cover:
+[![wercker status](https://app.wercker.com/status/34fecccc3e53a9b1fecd2af7566bca62/m "wercker status")](https://app.wercker.com/project/bykey/34fecccc3e53a9b1fecd2af7566bca62)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.

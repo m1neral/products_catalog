@@ -11,6 +11,9 @@ build:
     - bundle-install:
         without: development production
     - script:
+        name: create application.yml
+        code: mv config/application.yml.example config/application.yml
+    - script:
         name: db setup
         code: rake db:setup RAILS_ENV=test
     - script:
